@@ -2,6 +2,8 @@ var express = require('express');
 var request = require('request');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 var request_options = {
   url: 'https://www.pollen.com/api/forecast/current/pollen/10011',
   headers: {
@@ -19,5 +21,5 @@ app.get('/', function(req, res) {
   });
 });
 
-app.listen(3000, null);
+app.listen(app.get('port'), null);
 
