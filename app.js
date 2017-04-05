@@ -16,6 +16,7 @@ app.get('/pollen', function(req, res) {
     if (error) {
       console.log('Error with pollen request:', error);
     } else {
+      res.append('Access-Control-Allow-Origin', '*');
       res.send(body);
     }
   });
